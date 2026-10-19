@@ -1,0 +1,15 @@
+name: Garder Supabase actif
+
+on:
+  schedule:
+    - cron: '0 12 * * 1,4'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Requête vers la base
+        run: |
+          curl -fsS "https://mhyurmzjfwmizaknznog.supabase.co/rest/v1/markets?select=id&limit=1" \
+            -H "apikey: sb_publishable_5EMwmMBnGZMxQHFLUVZKDw_uDmUQ4Sc"

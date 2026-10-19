@@ -1,0 +1,79 @@
+:root {
+  --cream: #F6F0E2;
+  --surface: #FFFBF2;
+  --border: #E4D8C0;
+  --border-strong: #CDBE9F;
+  --brown: #5B3A29;
+  --ink: #3E2618;
+  --text: #4A2E20;
+  --muted: #6F5944;
+  --sage: #5F6F45;
+  --mustard: #E0A93E;
+  --terra: #A9492A;
+  --terra-bg: #F3D9CC;
+  --radius: 12px;
+  --nav-h: 72px;
+  --side-w: 220px;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: Jost, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--ink);
+  font-weight: 600;
+  margin: 0;
+}
+h1 { font-size: 26px; }
+h2 { font-size: 20px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 13px; font-weight: 500; color: var(--muted); }
+
+.input {
+  height: 44px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 0 14px;
+  font: 400 16px Jost, sans-serif;
+  color: var(--ink);
+}
+.input:focus-visible, .btn:focus-visible {
+  outline: 2px solid var(--mustard);
+  outline-offset: 2px;
+}
+
+.btn {
+  height: 48px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--radius);
+  font: 600 15px Jost, sans-serif;
+  cursor: pointer;
+  background: #EADFC6;
+  color: var(--ink);
+}
+.btn-primary { background: var(--brown); color: var(--surface); }
+.btn:disabled { opacity: 0.5; cursor: default; }
+
+.error { color: var(--terra); font-size: 14px; font-weight: 500; }
+.muted { color: var(--muted); }
