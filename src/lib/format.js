@@ -36,3 +36,21 @@ export function safeUrl(u) {
 export function formatDateTime(iso) {
   return new Date(iso).toLocaleString('fr-CA', { dateStyle: 'medium', timeStyle: 'short' })
 }
+
+// 'YYYY-MM-DD' -> date lisible, sans décalage de fuseau horaire
+export function formatDate(d) {
+  if (!d) return ''
+  return new Date(`${d}T12:00:00`).toLocaleDateString('fr-CA', { dateStyle: 'medium' })
+}
+
+export function formatDateRange(m) {
+  if (m.is_open_ended) return `Depuis le ${formatDate(m.start_date)} · sans fin`
+  if (!m.end_date || m.end_date === m.start_date) return formatDate(m.start_date)
+  return `${formatDate(m.start_date)} au ${formatDate(m.end_date)}`
+}
+
+// Date locale -> valeur d'un champ <input type="datetime-local">
+export function toLocalInput(date = new Date()) {
+  const p = (n) => String(n).padStart(2, '0')
+  return `${date.getFullYear()}-${p(date.getMonth() + 1)}-${p(date.getDate())}T${p(date.getHours())}:${p(date.getMinutes())}`
+}

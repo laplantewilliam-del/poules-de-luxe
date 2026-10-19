@@ -10,6 +10,11 @@ import Yarns from './views/Yarns.vue'
 import YarnForm from './views/YarnForm.vue'
 import Categories from './views/Categories.vue'
 import Adjustments from './views/Adjustments.vue'
+import Markets from './views/Markets.vue'
+import MarketDetail from './views/MarketDetail.vue'
+import MarketForm from './views/MarketForm.vue'
+import Sales from './views/Sales.vue'
+import Decompte from './views/Decompte.vue'
 
 // Mode "hash" (#/...) : évite les erreurs 404 sur GitHub Pages
 const routes = [
@@ -18,8 +23,12 @@ const routes = [
   { path: '/inventaire', component: Inventory, meta: { title: 'Inventaire' } },
   { path: '/inventaire/nouvelle', component: CreationForm, meta: { title: 'Nouvelle création' } },
   { path: '/inventaire/:id(\\d+)', component: CreationForm, meta: { title: 'Création' } },
-  { path: '/marches', component: Placeholder, meta: { title: 'Marchés' } },
-  { path: '/ventes', component: Placeholder, meta: { title: 'Ventes' } },
+  { path: '/marches', component: Markets, meta: { title: 'Marchés' } },
+  { path: '/marches/nouveau', component: MarketForm, meta: { title: 'Nouveau marché' } },
+  { path: '/marches/:id(\\d+)', component: MarketDetail, meta: { title: 'Marché' } },
+  { path: '/marches/:id(\\d+)/modifier', component: MarketForm, meta: { title: 'Modifier le marché' } },
+  { path: '/ventes', component: Sales, meta: { title: 'Ventes' } },
+  { path: '/ventes/decompte', component: Decompte, meta: { title: 'Décompte après marché' } },
   { path: '/stats', component: Placeholder, meta: { title: 'Statistiques' } },
   { path: '/plus', component: More, meta: { title: 'Plus' } },
   { path: '/plus/laines', component: Yarns, meta: { title: 'Laines' } },
