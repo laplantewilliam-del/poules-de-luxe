@@ -3,7 +3,8 @@ import { session, authReady } from './lib/auth'
 import Login from './views/Login.vue'
 import Home from './views/Home.vue'
 import More from './views/More.vue'
-import Placeholder from './views/Placeholder.vue'
+import Stats from './views/Stats.vue'
+import Export from './views/Export.vue'
 import Inventory from './views/Inventory.vue'
 import CreationForm from './views/CreationForm.vue'
 import Yarns from './views/Yarns.vue'
@@ -29,14 +30,14 @@ const routes = [
   { path: '/marches/:id(\\d+)/modifier', component: MarketForm, meta: { title: 'Modifier le marché' } },
   { path: '/ventes', component: Sales, meta: { title: 'Ventes' } },
   { path: '/ventes/decompte', component: Decompte, meta: { title: 'Décompte après marché' } },
-  { path: '/stats', component: Placeholder, meta: { title: 'Statistiques' } },
+  { path: '/stats', component: Stats, meta: { title: 'Statistiques' } },
   { path: '/plus', component: More, meta: { title: 'Plus' } },
   { path: '/plus/laines', component: Yarns, meta: { title: 'Laines' } },
   { path: '/plus/laines/nouvelle', component: YarnForm, meta: { title: 'Nouvelle laine' } },
   { path: '/plus/laines/:id(\\d+)', component: YarnForm, meta: { title: 'Laine' } },
   { path: '/plus/categories', component: Categories, meta: { title: 'Catégories' } },
   { path: '/plus/ajustements', component: Adjustments, meta: { title: 'Ajustements de stock' } },
-  { path: '/plus/export', component: Placeholder, meta: { title: 'Export des données' } },
+  { path: '/plus/export', component: Export, meta: { title: 'Export des données' } },
   { path: '/:pathMatch(.*)*', redirect: '/' },
 ]
 
