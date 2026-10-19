@@ -2,6 +2,7 @@
 import { watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { session } from './lib/auth'
+import { toastMessage } from './lib/toast'
 import NavBar from './components/NavBar.vue'
 import Wordmark from './components/Wordmark.vue'
 
@@ -19,7 +20,8 @@ watch(session, (s) => {
   <div v-else class="shell">
     <NavBar />
     <header class="topbar"><Wordmark /></header>
-    <main class="content"><RouterView /></main>
+    <main class="content"><RouterView :key="route.fullPath" /></main>
+    <div v-if="toastMessage" class="toast" role="status">{{ toastMessage }}</div>
   </div>
 </template>
 
